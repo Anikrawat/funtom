@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import {
   Quote,
   Utensils,
@@ -16,14 +16,14 @@ export default function KetchupOwnersMessage() {
   const isInView = useInView(containerRef, { once: false, amount: 0.3 });
 
   // Floating animation for the "Quality Stack" icons
-  const floatVariants = {
+  const floatVariants: Variants = {
     animate: (i: number) => ({
       y: [0, -15, 0],
       transition: {
         duration: 4,
         repeat: Infinity,
         delay: i * 0.7,
-        ease: "easeInOut",
+        ease: "easeInOut", // 2. If it still complains, use: ease: "easeInOut" as const
       },
     }),
   };
