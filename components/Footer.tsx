@@ -144,10 +144,10 @@ export default function KetchupFooter() {
             <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
               Powered by{" "}
               <a
-                href="https://pigopi.com"
+                href="https://pigo-pi.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-red-600 transition-colors decoration-red-200 decoration-2 underline-offset-4"
+                className="text-red-600 transition-colors decoration-red-200 decoration-2 underline-offset-4"
               >
                 PigoPi
               </a>
