@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const products = [
   {
@@ -32,6 +33,7 @@ const products = [
 ];
 
 export default function Bestsellers() {
+  const router = useRouter();
   // Logic to handle adding items to the cart
   const addToCart = (product: any) => {
     const existingCart = JSON.parse(
@@ -75,7 +77,10 @@ export default function Bestsellers() {
               Curated essentials for the gourmet explorer.
             </p>
           </div>
-          <button className="flex items-center gap-2 text-red-600 font-bold hover:gap-4 transition-all duration-300">
+          <button
+            onClick={() => router.push("/products")}
+            className="flex items-center gap-2 text-red-600 font-bold hover:gap-4 transition-all duration-300 cursor-pointer"
+          >
             View Catalog <ArrowRight size={20} />
           </button>
         </div>
