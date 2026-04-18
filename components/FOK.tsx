@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const articles = [
   {
@@ -12,7 +11,7 @@ const articles = [
     title: "The Ultimate Summer Dipping Board",
     description:
       "Discover how to pair our Reserve Vinegar with fresh seasonal produce for the perfect...",
-    image: "/FOK1.png", // Replace with your image path
+    image: "/FOK1.png",
   },
   {
     id: 2,
@@ -34,49 +33,47 @@ const articles = [
   },
 ];
 
+// Duplicate the items to ensure the loop is seamless
+const doubleArticles = [...articles, ...articles];
+
 export default function KitchenBlog() {
   return (
-    <section className="py-24 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        {/* Header with Navigation */}
-        <div className="flex justify-between items-center mb-12">
-          <h2 className="text-5xl font-black text-slate-900 tracking-tighter">
-            From Our Kitchen
-          </h2>
-          <div className="flex gap-3">
-            <button className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-slate-900 transition-all">
-              <ChevronLeft size={24} />
-            </button>
-            <button className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-900 hover:bg-slate-50 transition-all">
-              <ChevronRight size={24} />
-            </button>
-          </div>
-        </div>
+    <section className="py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 mb-12">
+        <h2 className="text-5xl font-black text-slate-900 tracking-tighter">
+          From Our Kitchen
+        </h2>
+      </div>
 
-        {/* Article Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {articles.map((article) => (
-            <motion.div
-              key={article.id}
-              className="group cursor-pointer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+      {/* Infinite Scroll Container */}
+      <div className="relative flex overflow-hidden">
+        <motion.div
+          className="flex gap-10 pr-10"
+          animate={{
+            x: ["0%", "-50%"], // Moves halfway because the array is doubled
+          }}
+          transition={{
+            ease: "linear",
+            duration: 25, // Adjust speed here (higher = slower)
+            repeat: Infinity,
+          }}
+        >
+          {doubleArticles.map((article, index) => (
+            <div
+              key={`${article.id}-${index}`}
+              className="group cursor-pointer w-[350px] flex-shrink-0"
             >
               {/* Image Container */}
               <div className="relative h-64 w-full overflow-hidden rounded-[2rem] mb-6 shadow-lg">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-                  className="w-full h-full"
-                >
+                <div className="w-full h-full">
                   <Image
                     src={article.image}
                     alt={article.title}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    unoptimized
                   />
-                </motion.div>
+                </div>
               </div>
 
               {/* Meta Info */}
@@ -97,9 +94,9 @@ export default function KitchenBlog() {
               <p className="text-slate-500 text-sm leading-relaxed font-medium line-clamp-2">
                 {article.description}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

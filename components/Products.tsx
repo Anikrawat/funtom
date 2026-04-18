@@ -32,6 +32,36 @@ const products = [
 ];
 
 export default function Bestsellers() {
+  // Logic to handle adding items to the cart
+  const addToCart = (product: any) => {
+    const existingCart = JSON.parse(
+      localStorage.getItem("funtom-cart") || "[]"
+    );
+
+    // Check if item already exists to increment quantity
+    const itemIndex = existingCart.findIndex(
+      (item: any) => item.id === product.id
+    );
+
+    if (itemIndex > -1) {
+      existingCart[itemIndex].quantity += 1;
+    } else {
+      // Mapping your local product keys to the expected cart format
+      existingCart.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        imageUrl: product.image,
+        quantity: 1,
+      });
+    }
+
+    localStorage.setItem("funtom-cart", JSON.stringify(existingCart));
+
+    // Dispatch event so the Navbar/Sidebar updates immediately
+    window.dispatchEvent(new Event("cartUpdated"));
+  };
+
   return (
     <section className="py-24 px-6 bg-[#F0F1F1] overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -55,14 +85,13 @@ export default function Bestsellers() {
           {products.map((product, index) => (
             <motion.div
               key={product.id}
-              // Animation: Start from right (x: 100) and fade in
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.8,
-                delay: index * 0.2, // Staggered effect
-                ease: [0.22, 1, 0.36, 1], // Smooth quint ease
+                delay: index * 0.2,
+                ease: [0.22, 1, 0.36, 1],
               }}
               className={`relative rounded-[2.5rem] p-8 flex flex-col transition-all duration-500 ${
                 product.isFeatured
@@ -70,7 +99,7 @@ export default function Bestsellers() {
                   : "bg-white/60 hover:bg-white hover:shadow-xl"
               }`}
             >
-              {/* Product Image Container - Fixed height ensures consistency */}
+              {/* Product Image Container */}
               <div className="relative h-72 w-full mb-8 flex items-center justify-center flex-shrink-0">
                 <Image
                   src={product.image}
@@ -80,7 +109,7 @@ export default function Bestsellers() {
                 />
               </div>
 
-              {/* Product Info - grow to push content */}
+              {/* Product Info */}
               <div className="flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -108,11 +137,12 @@ export default function Bestsellers() {
                 </div>
               </div>
 
-              {/* Action Button Area - Always occupies space to keep cards same size */}
+              {/* Action Button Area */}
               <div className="h-16 mt-6">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => addToCart(product)}
                   className="w-full h-full bg-red-600 text-white rounded-2xl font-black flex items-center justify-center gap-3 shadow-xl shadow-red-200"
                 >
                   Add to Cart

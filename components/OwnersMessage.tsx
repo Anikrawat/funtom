@@ -55,12 +55,9 @@ export default function KetchupOwnersMessage() {
             <div className="relative">
               <Quote className="absolute -top-6 -left-8 text-red-100 w-16 h-16 -z-10 opacity-50" />
               <p className="text-xl text-slate-600 leading-relaxed mb-10 font-medium">
-                "At{" "}
-                <span className="text-slate-900 font-bold">
-                  The Red Bottle Co.
-                </span>
-                , we believe a condiment is more than just a topping—it’s the
-                soul of the meal. Our focus is on sourcing{" "}
+                "At <span className="text-slate-900 font-bold">FUNTOM</span>, we
+                believe a condiment is more than just a topping—it’s the soul of
+                the meal. Our focus is on sourcing{" "}
                 <span className="text-red-600">vine-ripened tomatoes</span> and
                 organic spices that don't just add color, but bring a bold,
                 authentic flavor to every kitchen table."
@@ -69,14 +66,14 @@ export default function KetchupOwnersMessage() {
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-4">
                   <div className="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-red-200">
-                    MK
+                    RJ
                   </div>
                   <div>
                     <p className="text-slate-900 font-bold leading-none text-lg">
-                      Santosh Keshri
+                      Mr. RAJKUMAR JHA
                     </p>
                     <p className="text-slate-500 text-xs font-black uppercase tracking-widest mt-1">
-                      Founder & Master Saucerier
+                      Founder
                     </p>
                   </div>
                 </div>

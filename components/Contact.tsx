@@ -5,7 +5,6 @@ import {
   FaMapMarkerAlt,
   FaEnvelope,
   FaWhatsapp,
-  FaUtensils,
 } from "react-icons/fa";
 
 export default function KetchupContact() {
@@ -29,8 +28,8 @@ export default function KetchupContact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const phoneNumber = "917733999391";
-    const whatsappMessage = `🍅 *New Flavor Inquiry: The Red Bottle Co.*\n\n👤 Name: ${name}\n📧 Email: ${email}\n🍴 Interest: ${inquiryType}\n📝 Message:\n${message}`;
+    const phoneNumber = "919315929116";
+    const whatsappMessage = `🍅 *New Flavor Inquiry: The Funtom*\n\n👤 Name: ${name}\n📧 Email: ${email}\n🍴 Interest: ${inquiryType}\n📝 Message:\n${message}`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       whatsappMessage
     )}`;
@@ -40,7 +39,7 @@ export default function KetchupContact() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 bg-white px-6 scroll-mt-20 border-t border-red-50"
+      className="py-24 bg-[#FFF9F5] px-6 scroll-mt-20"
       id="contact-section"
     >
       <div className="max-w-7xl mx-auto">
@@ -69,19 +68,19 @@ export default function KetchupContact() {
               {/* Contact Cards */}
               <div className="space-y-6">
                 <div className="flex items-start gap-4 group">
-                  <div className="bg-[#2D0A0A] p-4 rounded-2xl text-red-500 shadow-xl group-hover:bg-red-600 group-hover:text-white transition-all">
+                  <div className="bg-white p-4 rounded-2xl text-red-600 shadow-sm border border-red-50 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
                     <FaPhoneAlt size={18} />
                   </div>
                   <div>
                     <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">
                       Call Our Kitchen
                     </p>
-                    <p className="font-bold text-slate-900">+91 77339 99391</p>
+                    <p className="font-bold text-slate-900">+91 93159 29116</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4 group">
-                  <div className="bg-[#2D0A0A] p-4 rounded-2xl text-red-500 shadow-xl group-hover:bg-red-600 group-hover:text-white transition-all">
+                  <div className="bg-white p-4 rounded-2xl text-red-600 shadow-sm border border-red-50 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
                     <FaEnvelope size={18} />
                   </div>
                   <div>
@@ -89,7 +88,7 @@ export default function KetchupContact() {
                       Email The Lab
                     </p>
                     <p className="font-bold text-slate-900 break-all">
-                      hello@redbottle.com
+                      info@funtom.in
                     </p>
                   </div>
                 </div>
@@ -97,7 +96,7 @@ export default function KetchupContact() {
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4 group">
-                  <div className="bg-[#2D0A0A] p-4 rounded-2xl text-red-500 shadow-xl group-hover:bg-red-600 group-hover:text-white transition-all">
+                  <div className="bg-white p-4 rounded-2xl text-red-600 shadow-sm border border-red-50 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
                     <FaMapMarkerAlt size={18} />
                   </div>
                   <div>
@@ -105,13 +104,13 @@ export default function KetchupContact() {
                       The Bottlery
                     </p>
                     <p className="font-bold text-slate-900">
-                      Tomato Valley, Rajasthan
+                      A1/57, Bhagya Vihar, Rani Khera, Delhi - 110081
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4 group">
-                  <div className="bg-[#2D0A0A] p-4 rounded-2xl text-red-500 shadow-xl group-hover:bg-red-600 group-hover:text-white transition-all">
+                  <div className="bg-white p-4 rounded-2xl text-red-600 shadow-sm border border-red-50 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
                     <FaWhatsapp size={18} />
                   </div>
                   <div>
@@ -135,31 +134,31 @@ export default function KetchupContact() {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-[#1a0505] p-10 md:p-14 rounded-[3rem] shadow-3xl relative overflow-hidden"
+              className="bg-white p-10 md:p-14 rounded-[3rem] shadow-2xl shadow-red-100/50 border border-red-50 relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/10 blur-3xl rounded-full" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red-100/50 blur-3xl rounded-full" />
 
-              <h3 className="text-2xl font-black text-white mb-8 uppercase tracking-tighter">
-                Sample Request
+              <h3 className="text-2xl font-black text-slate-900 mb-8 uppercase tracking-tighter">
+                Request
               </h3>
 
               <div className="space-y-5">
                 <div className="grid md:grid-cols-2 gap-5">
                   <div className="space-y-2">
-                    <label className="text-[9px] font-black uppercase tracking-[0.2em] text-red-200/40 ml-1">
-                      Chef/Business Name
+                    <label className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">
+                      Business Name
                     </label>
                     <input
                       type="text"
                       placeholder="Your name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-red-500 text-white transition-all text-sm"
+                      className="w-full bg-slate-50 border border-slate-100 rounded-xl px-5 py-4 focus:outline-none focus:border-red-500 text-slate-900 transition-all text-sm"
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[9px] font-black uppercase tracking-[0.2em] text-red-200/40 ml-1">
+                    <label className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">
                       Email Address
                     </label>
                     <input
@@ -167,20 +166,20 @@ export default function KetchupContact() {
                       placeholder="chef@kitchen.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-red-500 text-white transition-all text-sm"
+                      className="w-full bg-slate-50 border border-slate-100 rounded-xl px-5 py-4 focus:outline-none focus:border-red-500 text-slate-900 transition-all text-sm"
                       required
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[9px] font-black uppercase tracking-[0.2em] text-red-200/40 ml-1">
+                  <label className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">
                     Nature of Inquiry
                   </label>
                   <select
                     value={inquiryType}
                     onChange={(e) => setInquiryType(e.target.value)}
-                    className="w-full bg-[#2D0A0A] border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-red-500 text-white transition-all text-sm appearance-none cursor-pointer"
+                    className="w-full bg-slate-50 border border-slate-100 rounded-xl px-5 py-4 focus:outline-none focus:border-red-500 text-slate-900 transition-all text-sm appearance-none cursor-pointer"
                   >
                     <option>Restaurant Bulk Order</option>
                     <option>Retail Partnership</option>
@@ -190,7 +189,7 @@ export default function KetchupContact() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[9px] font-black uppercase tracking-[0.2em] text-red-200/40 ml-1">
+                  <label className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">
                     Your Flavor Profile/Needs
                   </label>
                   <textarea
@@ -198,7 +197,7 @@ export default function KetchupContact() {
                     rows={4}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:border-red-500 text-white transition-all text-sm resize-none"
+                    className="w-full bg-slate-50 border border-slate-100 rounded-xl px-5 py-4 focus:outline-none focus:border-red-500 text-slate-900 transition-all text-sm resize-none"
                     required
                   />
                 </div>
@@ -206,18 +205,18 @@ export default function KetchupContact() {
 
               <button
                 type="submit"
-                className="w-full mt-10 bg-red-600 hover:bg-white hover:text-red-950 text-white py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] transition-all duration-500 flex items-center justify-center gap-3 shadow-2xl shadow-red-500/20"
+                className="w-full mt-10 bg-red-600 hover:bg-slate-900 text-white py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] transition-all duration-500 flex items-center justify-center gap-3 shadow-xl shadow-red-200"
               >
-                Send to the Saucier
+                Send
                 <FaWhatsapp size={18} />
               </button>
 
-              <div className="mt-8 flex items-center justify-center gap-6 opacity-40">
-                <div className="h-[1px] flex-1 bg-white/10" />
-                <span className="text-[8px] font-black text-red-200/40 uppercase tracking-widest whitespace-nowrap">
+              <div className="mt-8 flex items-center justify-center gap-6 opacity-60">
+                <div className="h-[1px] flex-1 bg-slate-100" />
+                <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest whitespace-nowrap">
                   FSSAI Certified Quality
                 </span>
-                <div className="h-[1px] flex-1 bg-white/10" />
+                <div className="h-[1px] flex-1 bg-slate-100" />
               </div>
             </form>
           </div>
