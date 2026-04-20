@@ -30,6 +30,24 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Inside your Navbar component, add this helper function:
+  const handleFlavorClick = () => {
+    if (pathname !== "/") {
+      // If not on home page, go home first then scroll
+      router.push("/");
+      setTimeout(() => {
+        document
+          .getElementById("contact-section")
+          ?.scrollIntoView({ behavior: "smooth" });
+      }, 500); // Small timeout to allow page load
+    } else {
+      // If already on home page, just scroll
+      document
+        .getElementById("contact-section")
+        ?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   // Helper to sync cart data
   const updateCartData = () => {
     const cart = JSON.parse(localStorage.getItem("funtom-cart") || "[]");
@@ -136,7 +154,7 @@ export default function Navbar() {
           {/* RIGHT SIDE ACTIONS */}
           <div className="flex items-center gap-3 md:gap-6">
             <a
-              href="https://wa.me/917733999391"
+              href="https://wa.me/919315929116"
               target="_blank"
               className="hidden sm:flex items-center gap-2 text-slate-600 hover:text-red-600 transition-colors"
             >
@@ -160,7 +178,7 @@ export default function Navbar() {
             </button>
 
             <button
-              onClick={() => router.push("/taste-test")}
+              onClick={handleFlavorClick}
               className="relative hidden md:block bg-red-600 hover:bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-6 py-3 rounded-full transition-all duration-300 shadow-lg shadow-red-200"
             >
               Find Your Flavor
