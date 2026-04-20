@@ -204,7 +204,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsCartOpen(false)}
-              className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-"
+              className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50"
             />
             {/* Sidebar */}
             <motion.div
@@ -312,14 +312,14 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-[#2D0A0A]/40 backdrop-blur-sm z- lg:hidden"
+              className="fixed inset-0 bg-[#2D0A0A]/40 backdrop-blur-sm z-50 lg:hidden"
             />
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white z- lg:hidden p-8 shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white z-50 lg:hidden p-8 shadow-2xl"
             >
               <div className="flex justify-between items-center mb-12">
                 <p className="font-black uppercase tracking-tighter text-red-600">
