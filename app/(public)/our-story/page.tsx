@@ -54,30 +54,38 @@ export default function OurStoryPage() {
       </section>
 
       {/* 2. WHY CHOOSE US SECTION */}
-      <section className="py-24 bg-white">
+      <section className="py-24 pb-48 md:pb-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-20 items-start">
-          <div className="flex-1 relative">
-            <div className="aspect-video relative rounded-3xl overflow-hidden shadow-xl">
+          {/* IMAGE CONTAINER */}
+          <div className="flex-1 relative w-full min-h-[300px] md:min-h-[400px]">
+            {/* Fixed height on mobile (h-[350px]) ensures the container doesn't collapse.
+         The red div is relative to this box.
+      */}
+            <div className="relative w-full h-[350px] md:h-full md:aspect-video rounded-3xl overflow-hidden shadow-xl">
               <Image
                 src="/kitchen.png"
                 alt="Kitchen Scene"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
+                priority
               />
             </div>
-            {/* Overlapping Quote Box */}
+
+            {/* OVERLAPPING QUOTE BOX */}
             <motion.div
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              className="absolute -bottom-10 -right-6 md:right-10 bg-red-600 p-8 rounded-2xl max-w-xs shadow-2xl shadow-red-200"
+              className="absolute -bottom-12 right-4 md:-bottom-10 md:-right-10 bg-red-600 p-6 md:p-8 rounded-2xl max-w-[240px] md:max-w-xs shadow-2xl shadow-red-200 z-20"
             >
-              <p className="text-white font-medium italic leading-relaxed">
+              <p className="text-white text-sm md:text-base font-medium italic leading-relaxed">
                 "The flavor is the frame, the ingredients are the paint."
               </p>
             </motion.div>
           </div>
 
-          <div className="flex-1 space-y-8 pt-12">
+          {/* TEXT CONTENT */}
+          <div className="flex-1 space-y-8 pt-12 md:pt-12">
             <h2 className="text-4xl font-black tracking-tighter">
               Why Choose Us
             </h2>
@@ -90,9 +98,8 @@ export default function OurStoryPage() {
               </p>
               <p>
                 Our journey took us from local markets to international
-                landscapes, hunting for the specific peppercorns, the exact
-                grade of oil, and the most vibrant herbs to transform a simple
-                meal into a gallery-worthy experience.
+                landscapes, hunting for the specific peppercorns and the most
+                vibrant herbs.
               </p>
             </div>
           </div>

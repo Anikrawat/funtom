@@ -147,7 +147,7 @@ export default function KetchupFooter() {
                 href="https://pigo-pi.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-red-600 transition-colors decoration-red-200 decoration-2 underline-offset-4"
+                className="text-transparent bg-clip-text bg-linear-to-r from-[#2563eb] via-[#6366f1] to-[#9333ea] transition-colors decoration-red-200 decoration-2 underline-offset-4"
               >
                 PigoPi
               </a>

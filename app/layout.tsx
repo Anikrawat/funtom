@@ -14,9 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Natural Relief",
-  description:
-    "A simple app to help you find natural remedies for common ailments.",
+  title: "Funtom",
 };
 
 export const viewport: Viewport = {
@@ -39,3 +37,4 @@ export default function RootLayout({
     </html>
   );
 }
+
